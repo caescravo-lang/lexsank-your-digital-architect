@@ -22,10 +22,11 @@ const services = [
   },
 ];
 
-export function Services() {
+export function Services({ heading = true }: { heading?: boolean }) {
   return (
     <section id="servicios" className="py-24">
       <div className="mx-auto max-w-6xl px-6">
+        {heading && (
         <div className="mx-auto max-w-2xl text-center">
           <SectionBadge>Servicios</SectionBadge>
           <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
@@ -36,8 +37,9 @@ export function Services() {
             inteligencia y conectividad.
           </p>
         </div>
+        )}
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3 mt-14 first:mt-0">
           {services.map(({ icon: Icon, title, text, points }) => (
             <article
               key={title}

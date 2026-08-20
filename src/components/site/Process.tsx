@@ -23,18 +23,20 @@ const steps = [
   },
 ];
 
-export function Process() {
+export function Process({ heading = true }: { heading?: boolean }) {
   return (
     <section id="proceso" className="py-24">
       <div className="mx-auto max-w-6xl px-6">
+        {heading && (
         <div className="mx-auto max-w-2xl text-center">
           <SectionBadge>Cómo trabajamos</SectionBadge>
           <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             Un método claro, de la idea a la operación
           </h2>
         </div>
+        )}
 
-        <ol className="mt-14 grid gap-5 md:grid-cols-4">
+        <ol className="grid gap-5 md:grid-cols-4 mt-14 first:mt-0">
           {steps.map((s) => (
             <li key={s.n} className="rounded-3xl border border-border/70 bg-surface p-7 transition-all hover:-translate-y-1 hover:shadow-soft">
               <span className="font-display text-sm font-semibold text-primary">{s.n}</span>
