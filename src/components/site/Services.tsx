@@ -1,4 +1,5 @@
 import { Code2, Bot, Radio } from "lucide-react";
+import { SectionBadge } from "./SectionBadge";
 
 const services = [
   {
@@ -25,11 +26,9 @@ export function Services() {
   return (
     <section id="servicios" className="py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            Servicios
-          </span>
-          <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+        <div className="mx-auto max-w-2xl text-center">
+          <SectionBadge>Servicios</SectionBadge>
+          <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             El ecosistema digital y físico que su negocio demanda
           </h2>
           <p className="mt-4 text-ink-soft">

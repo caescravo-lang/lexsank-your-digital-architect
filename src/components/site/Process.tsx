@@ -1,3 +1,5 @@
+import { SectionBadge } from "./SectionBadge";
+
 const steps = [
   {
     n: "01",
@@ -25,20 +27,18 @@ export function Process() {
   return (
     <section id="proceso" className="py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            Cómo trabajamos
-          </span>
-          <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+        <div className="mx-auto max-w-2xl text-center">
+          <SectionBadge>Cómo trabajamos</SectionBadge>
+          <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             Un método claro, de la idea a la operación
           </h2>
         </div>
 
         <ol className="mt-14 grid gap-5 md:grid-cols-4">
           {steps.map((s) => (
-            <li key={s.n} className="rounded-3xl bg-surface p-7">
+            <li key={s.n} className="rounded-3xl border border-border/70 bg-surface p-7 transition-all hover:-translate-y-1 hover:shadow-soft">
               <span className="font-display text-sm font-semibold text-primary">{s.n}</span>
-              <h3 className="mt-4 font-display text-lg font-semibold text-foreground">{s.title}</h3>
+              <h3 className="mt-5 font-display text-lg font-semibold text-foreground">{s.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{s.text}</p>
             </li>
           ))}

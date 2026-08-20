@@ -1,3 +1,4 @@
+import { SectionBadge } from "./SectionBadge";
 import aerum from "@/assets/case-aerum.jpg";
 import bucare from "@/assets/case-bucare.jpg";
 import lora from "@/assets/case-lora.jpg";
@@ -33,11 +34,9 @@ export function Cases() {
   return (
     <section id="casos" className="bg-surface py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            Casos de estudio
-          </span>
-          <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+        <div className="mx-auto max-w-2xl text-center">
+          <SectionBadge>Casos de estudio</SectionBadge>
+          <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             Portafolio de impacto
           </h2>
         </div>
@@ -60,7 +59,7 @@ export function Cases() {
                 <span className="rounded-full bg-surface px-3 py-1 text-xs font-medium text-ink-soft">
                   {c.tag}
                 </span>
-                <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight text-foreground">
+                <h3 className="mt-5 font-display text-2xl font-semibold tracking-tight text-foreground">
                   {c.name}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-ink-soft">{c.text}</p>

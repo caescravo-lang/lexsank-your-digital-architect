@@ -26,7 +26,7 @@ export function Nav() {
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       <nav
         className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border border-border/60 px-4 py-2.5 transition-all ${
-          scrolled ? "bg-background/85 shadow-soft backdrop-blur-xl" : "bg-background/50 backdrop-blur-md"
+          scrolled ? "gradient-ink/95 shadow-soft backdrop-blur-xl" : "bg-transparent backdrop-blur-md"
         }`}
       >
         <a href="#inicio" className="flex items-center gap-2 pl-1">
