@@ -30,18 +30,20 @@ const cases = [
   },
 ];
 
-export function Cases() {
+export function Cases({ heading = true }: { heading?: boolean }) {
   return (
     <section id="casos" className="bg-surface py-24">
       <div className="mx-auto max-w-6xl px-6">
+        {heading && (
         <div className="mx-auto max-w-2xl text-center">
           <SectionBadge>Casos de estudio</SectionBadge>
           <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             Portafolio de impacto
           </h2>
         </div>
+        )}
 
-        <div className="mt-14 space-y-8">
+        <div className="space-y-8 mt-14 first:mt-0">
           {cases.map((c, i) => (
             <article
               key={c.name}

@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import logo from "@/assets/lexsank-mark.png";
 import { EMAIL, EMAIL_URL, LOCATION, WHATSAPP_URL } from "./contact";
 
@@ -19,22 +20,25 @@ export function Footer() {
 
         <nav className="flex flex-col gap-3 text-sm text-ink-soft">
           <p className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-foreground">
-            Secciones
+            Navegación
           </p>
-          <a href="#servicios" className="hover:text-foreground">Servicios</a>
-          <a href="#casos" className="hover:text-foreground">Casos</a>
-          <a href="#proceso" className="hover:text-foreground">Proceso</a>
-          <a href="#contacto" className="hover:text-foreground">Contacto</a>
+          <Link to="/servicios" className="hover:text-foreground">Servicios</Link>
+          <Link to="/casos" className="hover:text-foreground">Casos</Link>
+          <Link to="/proceso" className="hover:text-foreground">Proceso</Link>
+          <Link to="/nosotros" className="hover:text-foreground">Nosotros</Link>
+          <Link to="/blog" className="hover:text-foreground">Blog</Link>
         </nav>
 
         <nav className="flex flex-col gap-3 text-sm text-ink-soft">
           <p className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-foreground">
             Contacto
           </p>
+          <Link to="/contacto" className="hover:text-foreground">Página de contacto</Link>
           <a href={EMAIL_URL} className="hover:text-foreground">{EMAIL}</a>
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
             WhatsApp
           </a>
+          <Link to="/auth" className="hover:text-foreground">Portal de clientes</Link>
         </nav>
       </div>
 
