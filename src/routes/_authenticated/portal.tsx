@@ -16,8 +16,9 @@ export const Route = createFileRoute("/_authenticated/portal")({
   component: PortalPage,
 });
 
+const DEFAULT_SERVICE = "Software y apps a medida";
 const services = [
-  "Software y apps a medida",
+  DEFAULT_SERVICE,
   "Automatización con IA",
   "Infraestructura y redes",
   "Otro",
@@ -29,7 +30,7 @@ function PortalPage() {
   const [email, setEmail] = useState<string | null>(null);
   const [form, setForm] = useState({
     title: "",
-    service: services[0],
+    service: DEFAULT_SERVICE,
     description: "",
     budget_range: "",
   });
@@ -75,7 +76,7 @@ function PortalPage() {
     },
     onSuccess: () => {
       toast.success("Solicitud enviada.");
-      setForm({ title: "", service: services[0], description: "", budget_range: "" });
+      setForm({ title: "", service: DEFAULT_SERVICE, description: "", budget_range: "" });
       queryClient.invalidateQueries({ queryKey: ["project_requests"] });
     },
     onError: (e) => toast.error(e instanceof Error ? e.message : "No se pudo enviar."),
@@ -93,7 +94,7 @@ function PortalPage() {
       <PageHeader
         badge="Portal de clientes"
         title={`Hola${profile.data?.full_name ? `, ${profile.data.full_name}` : ""}`}
-        subtitle={email ?? undefined}
+        {...(email ? { subtitle: email } : {})}
       />
 
       <section className="px-6 py-16">
