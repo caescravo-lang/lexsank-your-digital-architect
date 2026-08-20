@@ -1,24 +1,64 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Nav } from "@/components/site/Nav";
+import { Hero } from "@/components/site/Hero";
+import { Values } from "@/components/site/Values";
+import { Services } from "@/components/site/Services";
+import { Cases } from "@/components/site/Cases";
+import { Process } from "@/components/site/Process";
+import { Contact } from "@/components/site/Contact";
+import { Footer } from "@/components/site/Footer";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "LexSank Interactive — Arquitectura tecnológica integral";
+const description =
+  "Software a medida, automatización con IA 24/7 e infraestructura de redes inteligentes. Innovación sin fronteras desde San Cristóbal, Táchira, con estándares internacionales.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "LexSank Interactive",
+          slogan: "Innovación sin fronteras: el ecosistema digital y físico que su negocio demanda.",
+          description,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "San Cristóbal",
+            addressRegion: "Táchira",
+            addressCountry: "VE",
+          },
+        }),
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background font-sans antialiased">
+      <Nav />
+      <main>
+        <Hero />
+        <Values />
+        <Services />
+        <Cases />
+        <Process />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 }
